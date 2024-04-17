@@ -20,7 +20,7 @@ export function truncateWalletAddress(
     walletAddress.length < startLength + endLength
   ) {
     console.error("Invalid wallet address or length parameters");
-    return walletAddress + "Chain" + chainId;
+    return walletAddress;
   }
 
   // Truncate and add ellipsis
