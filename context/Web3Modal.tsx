@@ -13,6 +13,13 @@ const mainnet = {
   explorerUrl: "https://etherscan.io",
   rpcUrl: "https://cloudflare-eth.com",
 };
+const sepolia = {
+  chainId: 300,
+  name: "zkSync Sepolia Testnet",
+  currency: "ETH",
+  explorerUrl: "https://etherscan.io",
+  rpcUrl: "wss://zksync-sepolia.drpc.org",
+};
 
 // 3. Create a metadata object
 const metadata = {
@@ -37,7 +44,7 @@ const ethersConfig = defaultConfig({
 // 5. Create a Web3Modal instance
 createWeb3Modal({
   ethersConfig,
-  chains: [mainnet],
+  chains: [mainnet, sepolia],
   projectId,
   enableAnalytics: true, // Optional - defaults to your Cloud configuration
   enableOnramp: true, // Optional - false as default
