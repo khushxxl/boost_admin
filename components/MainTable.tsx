@@ -86,9 +86,6 @@ export default function DataTable<TData, TValue>({
                   </TableCell>
                 ))}
 
-                <TableCell key={(row.original as NFTMetaData).id}></TableCell>
-
-                <TableCell key={(row.original as NFTMetaData).id}></TableCell>
                 <TableCell key={(row.original as NFTMetaData).id}>
                   <OptionsDialog data={row.original as NFTMetaData} />
                 </TableCell>

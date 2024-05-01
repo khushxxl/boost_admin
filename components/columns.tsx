@@ -23,6 +23,7 @@ import { Label } from "./ui/label";
 import { useContext } from "react";
 import { AppContext } from "@/context/AppContext";
 import { baseNFTData, lineaNFTS, zoraNFTS } from "@/utils/constants";
+import Image from "next/image";
 
 const NFTSelector = () => {
   const {
@@ -69,12 +70,32 @@ const NFTSelector = () => {
 
 export const columns: ColumnDef<NFTMetaData>[] = [
   {
+    accessorKey: "img",
+    header: ({ column }) => {
+      return (
+        <div className="flex items-center">
+          <h1 className="">
+            <NFTSelector />
+          </h1>
+        </div>
+      );
+    },
+    cell: ({ renderValue, ...props }) => {
+      const img = renderValue() as string;
+
+      return (
+        <div className="flex items-center">
+          <Image alt="" height={100} width={100} src={img} />
+        </div>
+      );
+    },
+  },
+  {
     accessorKey: "name",
     header: ({ column }) => {
       return (
         <div className="flex items-center">
           <h1 className="mr-4">NFT Name</h1>
-          <NFTSelector />
         </div>
       );
     },
@@ -84,6 +105,7 @@ export const columns: ColumnDef<NFTMetaData>[] = [
       return <div className="">{name}</div>;
     },
   },
+
   {
     accessorKey: "address",
     header: "Contract Address",
